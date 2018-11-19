@@ -1,0 +1,11 @@
+body{
+	background-color: #419bd9;
+	margin: 0;
+	text-align: center;
+}
+#allcontent{
+	background-color: #FFFFFF;
+	width: 800px;
+	height: 1000px;
+	margin: 0 auto;
+}

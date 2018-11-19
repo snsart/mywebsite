@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>snsart个人网站后台管理</title>
+		<link rel="stylesheet" href="css/style.css" />
+		<link rel="icon" href="img/icon.png" type="image"/>
+	</head>
+	<body>
+		<div id="container" class="container fullpage-container">
+			<header id="header">
+				<div class="head">
+					<div class="title">snsart 个人网站后台管理系统</div>
+					<div class="log login fr">登录</div>
+					<div class="log logout fr">退出</div>
+				</div>
+			</header>
+			
+			<div id="mainbody">
+				<nav id="leftnav">
+					<ul class="navlist">
+						<a><li class="btn">首页</li></a>
+						<a><li class="btn">博客</li></a>
+						<a><li class="btn">项目</li></a>
+						<a><li class="btn">绘画</li></a>
+					</ul>
+				</nav>
+				<div id="right-content">
+					<section class="tabpage index">
+						暂无内容
+					</section>
+					<section class="tabpage blog">
+						暂无内容
+					</section>
+					<section class="tabpage project select">
+						<nav class="pro-nav">
+							<ul class="pro-nav-list">
+								<a><li class="pro-game-btn fl select">游戏</li></a>
+								<a><li class="pro-program-btn fl">小程序</li></a>
+								<a><li class="pro-animateprogram-btn fl">动画编程</li></a>
+							</ul>
+						</nav>
+						<div class="propage">
+							<div class="subtabpage pro-game select">
+								<div class="pro-list game">
+									<table>
+										<thead>
+											<tr>
+												<th>id</th>
+												<th>名称</th>
+												<th>浏览量</th>
+												<th>首页推送</th>
+												<th>发布日期</th>
+												<th>编辑</th>
+												<th>删除</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>1</td>
+												<td>消消乐</td>
+												<td>50</td>
+												<td>是</td>
+												<td>2018-11-10</td>
+												<td><a>编辑</a></td>
+												<td><a>删除</a></td>
+											</tr>
+											
+											<tr>
+												<td>2</td>
+												<td>连连看</td>
+												<td>95</td>
+												<td>否</td>
+												<td>2018-10-15</td>
+												<td><a>编辑</a></td>
+												<td><a>删除</a></td>
+											</tr>
+											
+											<tr>
+												<td>3</td>
+												<td>植物大战僵尸</td>
+												<td>50</td>
+												<td>否</td>
+												<td>2018-11-19</td>
+												<td><a>编辑</a></td>
+												<td><a>删除</a></td>
+											</tr>
+											
+											<tr>
+												<td>4</td>
+												<td>纸牌</td>
+												<td>102</td>
+												<td>否</td>
+												<td>2018-10-23</td>
+												<td><a>编辑</a></td>
+												<td><a>删除</a></td>
+											</tr>
+										</tbody>
+									</table>
+									<button>添加新游戏</button>
+								</div>
+								
+								<div class="pro-add game">
+									<header>
+										<h3>添加游戏</h3>
+									</header>
+									<div>
+										<form method="post" enctype="multipart/form-data">
+											<p><label for="gamename">游戏名称:</label><input id="gamename" name="gamename" /></p>
+											<p><label for="gamebrief">游戏说明:</label><textarea cols="60" rows="5"></textarea></p>
+											<p><label for="gameupload">上传游戏:</label><input type="file" id="gameupload" name="gamename" /></p>
+											<p>
+												<fieldset>
+													<legend>首页推荐</legend>
+													是否选择首页推荐
+													<input type="radio" checked value="Y" id="yes" name="push"/>
+													<label for="yes">是</label>
+													<input type="radio" value="N" id="no" name="push"/>
+													<label for="no">否</label>
+													<p><label for="pushimg">首页图:</label><input type="file" id="pushimg" name="pushimg" /></p>
+												</fieldset>
+											</p>
+											
+											<input type="submit" value="添加游戏" />
+										</form>
+									</div>
+								</div>
+							</div>
+							<div class="subtabpage pro-program">
+								小程序管理
+							</div>
+							<div class="subtabpage pro-animateprogram">
+								动画编程管理
+							</div>
+						</div>
+					</section>
+					
+					<section class="tabpage paint">
+						暂无内容
+					</section>
+				</div>
+			</div>
+		</div>
+		
+		<footer id="footer">
+			
+		</footer>
+		
+	</body>
+</html>

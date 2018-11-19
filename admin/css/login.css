@@ -1,0 +1,47 @@
+html,body,ul,p{
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	font-size: 10px;
+	height: 100%;
+}
+body{
+	background-color: #125A9A;;
+}
+/*登录界面*/
+#login-content{
+	font-size: 2rem;
+	width: 30rem;
+	margin: 20rem auto;
+	background-color: #FFFFFF;
+}
+
+header{
+	height: 3rem;
+	line-height: 3rem;
+	background-color: #1f6fb5;
+	text-align: center;
+}
+
+.login-body{
+	padding: 1rem;
+}
+
+form{
+	line-height: 4rem;
+	font-size: 2rem;
+}
+
+input{
+	font-size: 2rem;
+}
+
+.submit{
+	text-align: center;
+}
+
+.error{
+	color: #FF0000;
+}
