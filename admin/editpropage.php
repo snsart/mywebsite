@@ -19,8 +19,6 @@
 		$type=$row['type'];
 		$brief=$row['brief'];
 	}
-	echo $type;
-	
 ?>
 <div class="pro-add game">
 	<header>
@@ -50,9 +48,11 @@
 			<hr>
 			<p class="tips"><p>
 			<input id="submitpro" type="button" value="提交修改" name="submit"/>
+			<input id="backprolist-btn" type="button" value="返回列表" name="submit"/>
 		</form>
 	</div>
 	<script>
+		$("#backprolist-btn").css("display","none");
 		$("#pushimg").css("display","none");
 		/*首页推广复选框勾选时*/
 		$("#push").click(function(e){
@@ -70,6 +70,12 @@
 			})
 		})
 		
+		$($("#backprolist-btn")[0]).click(function(){
+			$.get("prolist.php",function(data){
+				$($(".propage .pro-game")[0]).html(data);
+			})
+		})
+		
 		$("#submitpro").click(function(){
 			var formdata=new FormData(document.getElementById("fm"));
 			$.ajax({
@@ -81,6 +87,10 @@
 				processData:false,//重要，传输文件必须设置为false
 				success:function(data){
 					$($("#fm .tips")[0]).html(data);
+					if(data="修改成功"){
+						$("#backprolist-btn").css("display","block");
+						$("#submitpro").css("display","none");
+					}
 				}
 			});
 		})

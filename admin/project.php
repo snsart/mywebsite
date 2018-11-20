@@ -1,8 +1,7 @@
 <section class="tabpage project select">
 	<nav class="pro-nav">
 		<ul class="pro-nav-list">
-			<a><li class="pro-game-btn fl select">游戏</li></a>
-			<a><li class="pro-program-btn fl">小程序</li></a>
+			<a><li class="pro-game-btn fl select">项目</li></a>
 			<a><li class="pro-animateprogram-btn fl">动画编程</li></a>
 		</ul>
 	</nav>

@@ -37,11 +37,13 @@
 			<hr>
 			<p class="tips"><p>
 			<input id="submitpro" type="button" value="添加项目" name="submit"/>
+			<input id="backprolist-btn" type="button" value="返回列表" name="submit"/>
 		</form>
 	</div>
 	<script>
-		
 		$("#pushimg").css("display","none");
+		$("#backprolist-btn").css("display","none");
+		
 		$("#push").click(function(e){
 			var check=document.getElementById("push");
 			if(check.checked){
@@ -52,6 +54,12 @@
 		})
 		
 		$($(".pro-add .back-prolist")[0]).click(function(){
+			$.get("prolist.php",function(data){
+				$($(".propage .pro-game")[0]).html(data);
+			})
+		})
+		
+		$($("#backprolist-btn")[0]).click(function(){
 			$.get("prolist.php",function(data){
 				$($(".propage .pro-game")[0]).html(data);
 			})
@@ -69,6 +77,10 @@
 				processData:false,//重要，传输文件必须设置为false
 				success:function(data){
 					$($("#fm .tips")[0]).html(data);
+					if(data="上传成功"){
+						$("#backprolist-btn").css("display","block");
+						$("#submitpro").css("display","none");
+					}
 				}
 			});
 		})
