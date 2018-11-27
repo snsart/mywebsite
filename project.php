@@ -46,7 +46,7 @@
 							if($row['type']=="game"){
 					?>		
 							<li>	
-								<a href=<?php echo "admin/".$row['url']."/index.html" ?>>
+								<a href=<?php echo "admin/".$row['url']."/index.html" ?> target="_blank">
 								<div class="promenu-content">
 									<p><img class="thumbnail" src=<?php echo "admin/".$row['thumbnail'].""?> /></p>
 									<div class="pro-info">

@@ -61,10 +61,6 @@
 			exit();
 		}
 		@unlink($_FILES['thumbnail']['tmp_name']);
-	}else{
-		$message="请选择要上传的文件";
-		echo $message;
-		exit();
 	}
 	
 	if(isset($_POST["push"])){
@@ -88,15 +84,25 @@
 		}
 	}
 	
-	
-	
 	$dbc=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-	$query="update project set name='$name',type='$type',user_id='$user_id',password=SHA('$password'),brief='$brief',thumbnail='$thumbnail',pushhome='$ispush',homeImg='$homeimg'".        
-			"where id='$id'";
-			
+	$query="update project set name='$name',type='$type',brief='$brief' where id='$id'";
+	
 	mysqli_query($dbc,$query) or die("数据更新失败");
+	if(!empty($password)){
+		$query="update project set password=SHA('$password') where id='$id'" ;
+		mysqli_query($dbc,$query) or die("数据更新失败");     
+	}
+	
+	if(!empty($thumbnail_name)){
+		$query="update project set thumbnail='$thumbnail' where id='$id'" ;
+		mysqli_query($dbc,$query) or die("数据更新失败");     
+	}
+	
+	if(!empty($homeimg)){
+		$query="update project set pushhome='$ispush',homeImg='$homeimg' where id='$id'" ;
+		mysqli_query($dbc,$query) or die("数据更新失败");     
+	}
 				
 	echo '修改成功';
-	mysqli_close($dbc);
-		
+	mysqli_close($dbc);	
 ?>
