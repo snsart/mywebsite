@@ -80,6 +80,7 @@
 		exit();
 	}
 	
+	//上传图片文件
 	if(!empty($thumbnail_name)){
 		if($thumbnail_type=='image/png'||$thumbnail_type=='image/jpg'||$thumbnail_type=='image/jpeg'){
 			if($_FILES['thumbnail']['error']==0){
