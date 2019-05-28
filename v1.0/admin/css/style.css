@@ -1,0 +1,177 @@
+html,body,ul,p{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 10px;
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	background-color: #125A9A;
+}
+
+li{
+	list-style: none;
+}
+
+.fl,.fr{
+	display: inline;
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+a:hover{
+	cursor: pointer;
+}
+
+
+#container{
+	height: 100%;
+}
+
+.tips{
+	color: #FF0000;
+}
+
+/*页眉*/
+
+#header{
+	position: fixed;
+	top: 0;
+	margin: 0;
+	padding: 0;
+	background: #1f6fb5;
+	z-index: 99;
+	border-bottom: solid 1px #073A66;
+	
+	height: 8rem;
+	width: 100%;	
+}
+
+#header .head{
+	line-height: 4rem;
+	height: 4rem;
+	padding: 2rem 5rem;
+	text-align: center;
+}
+
+#header .log{
+	color: #fff;
+	font-size: 2rem;
+	margin-left: 3rem;
+}
+
+#header .title{
+	display: inline;
+	color: #fff;
+	font-size: 3rem;
+	letter-spacing: 1rem;
+}
+
+#mainbody{
+	padding-top: 9rem;
+	
+}
+
+#leftnav{
+	position: fixed;
+	width: 10rem;	
+	height: 100%;
+	background-color: #1f6fb5;
+	color: #FFFFFF;
+	font-size: 2rem;
+}
+
+#leftnav .navlist{
+	width: 100%;
+}
+
+#leftnav li{
+	width: 100%;
+	text-align: center;
+	height: 4rem;
+	line-height: 4rem;
+	border-bottom: solid 1px #125A9A;
+}
+
+#leftnav li.select{
+	background-color:#419BD9;
+}
+
+#right-content{
+	margin:0 1rem 0 11rem;
+	background-color: #F4F4F4;
+	min-height: 50rem;
+}
+
+.tabpage{
+	display: block;
+}
+
+/*========================================项目页面===============================*/
+.tabpage.project .pro-nav{
+	width: 100%;
+	height: 4rem;
+	line-height: 4rem;
+	font-size: 2rem;
+	color: #000000;
+	background-color: #9dd3fa;
+}
+
+.tabpage.project .pro-nav li{
+	border-right: 1px #419BD9 solid;
+	padding: 0 2rem;
+	text-align: center;
+}
+
+.tabpage.project .pro-nav li.select{
+	background-color: #419BD9;
+}
+
+.tabpage.project .propage{
+	padding: 1rem;
+}
+
+.tabpage.project .propage table{
+	color: #000000;
+	font-size: 2rem;
+	text-align: center;
+	border-spacing: 0.5rem;
+}
+
+.tabpage.project .propage table thead{
+	color: #1F6FB5;
+}
+
+.tabpage.project .propage table td{
+	padding: 0 2rem;
+}
+
+.project .subtabpage{
+	display: none;
+}
+
+.project .subtabpage.select{
+	display: block;
+}
+
+/*游戏页面——首页*/
+.pro-add{
+	font-size: 2rem;
+	line-height: 4rem;
+}
+
+.pro-add input{
+	font-size: 2rem;
+}
+
+.pro-add select{
+	font-size: 2rem;
+}

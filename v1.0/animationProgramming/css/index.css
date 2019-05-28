@@ -1,0 +1,210 @@
+html{
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+}
+body{
+	margin: 0;
+	padding: 0;
+	background-color: #FFFFFF;
+}
+
+h1,h2{
+	margin: 0;
+	padding: 0;
+}
+
+/*动画*/
+.stage{
+	position: fixed;
+	display: none;
+	top:0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	background-color: #24292e;
+}
+
+.canvasCont{
+	position: absolute;
+	margin: auto;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 0;
+	background-color: #000000;
+	border-bottom: solid 1px #222222;
+	overflow: hidden;
+}
+
+.canvasCont .canHeader{
+	position: relative;
+	width: 100%;
+	height: 12.5%;
+	background-color: #24292e;
+}
+
+.canvasCont .canHeader h2{
+	position: absolute;
+	display: block;
+	bottom: 0rem;
+	left: 0rem;
+	font-size: 1rem;
+	padding: 0.1rem 0.3rem;
+	background-color: #000000;
+	border-top-right-radius: 0.5rem;
+	border: 1px solid #000000;
+	color: #c8bfa2;
+}
+
+
+.canvasCont .canMid{
+	position: relative;
+	width: 100%;
+	height: 75%;
+	background-color: #FFFFFF;
+	border-bottom: solid 1px #222222;
+}
+
+#closeBtn{
+	position: absolute;
+	margin: 5px;
+	top:0;
+	right: 0;
+	width: 1.5rem;
+	height: 1.5rem;
+	background: url(../img/close.png) no-repeat;
+	background-size: 100% 100%;
+	cursor: pointer;
+}
+
+#canvas{
+	width: 100%;
+	height: 100%;
+	background-color: #FFFFFF;
+	border: solid 1px #222222;
+}
+
+.canvasCont .canMid .fullScreenIcon{
+	position: absolute;
+	display: inline-block;
+	margin: 0.2rem;
+	width: 1.5rem;
+	height: 1.5rem;
+	border-radius: 1rem;
+	bottom:0;
+	right: 0;
+	background: url(../img/arrow-big-09.png) #222222 no-repeat;
+	background-size: 80% 80%;
+	background-position-x:0.17rem ;
+	background-position-y:0.17rem ;
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.canvasCont .canBottom{
+	width: 100%;
+	height: 30%;
+	font-size:0.5rem ;
+	border-top: solid 1px #222222;
+	background-color: #24292e;
+	text-align: left;
+	color: #FFFFFF;
+}
+
+
+/*菜单*/
+.container{
+	width: 80%;
+	margin: 5rem  auto;
+	overflow: auto;
+}
+
+.pro-cont{
+	position: relative;
+	display: none;
+	margin: 0;
+	min-width: 18rem;
+	width: auto;
+}
+
+.pro-border{
+	position: absolute;
+	width: 98%;
+	height: 95%;
+	margin: auto;
+	top:0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border: 1px solid #BBBBBB;
+	background-color: #FFFFFF;
+}
+
+.pro{
+	position: absolute;
+	width: 95%;
+	height: 92%;
+	margin: auto;
+	background-color: #FFFFFF;
+	cursor: pointer;
+	overflow: hidden;
+}
+
+.pro-mid{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+}
+
+.pro-mid .pro-img{
+	
+	position: absolute;
+	display: block;
+	opacity: 1;
+	width: 30%;
+	padding-top: 30%;
+	height: 0;
+	border-radius: 20%;
+	margin: auto;
+	top:0;
+	bottom: 0;
+	left: 5%;
+	background: url(../img/timg.jpg) no-repeat;
+	background-size:100% 100% ;
+	
+}
+
+.pro-title{
+	position: absolute;
+	display: table;
+	width: 65%;
+	left: 35%;
+	height: 70%;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	margin: auto;
+}
+
+.pro-title p{
+	display: table-cell;
+	margin: 0 auto;
+	padding: 0.5rem;
+	vertical-align: middle;
+	font-size: 1.2rem;
+	letter-spacing:1px;
+	color: #000000;
+}
+
+
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}

@@ -1,0 +1,84 @@
+html,body,ul,p{
+	margin: 0;
+	padding: 0;
+}
+html{
+	font-size: 12px;
+	background-color: #fff;
+}
+
+
+li{
+	list-style: none;
+}
+
+.fl,.fr{
+	display: inline;
+}
+
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+
+a{
+	text-decoration : none
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #336699;
+	cursor: pointer;
+}/* 当有鼠标悬停在链接上 */
+
+
+
+/*页眉*/
+
+#header{
+	position: relative;
+	margin: 0;
+	padding: 0;
+	background: #336699;
+	
+	height: 10rem;
+	width: 100%;	
+	min-width: 500px;
+}
+.myimg{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	margin: 30px 10px 30px 50px;
+	border: 1px solid #666666;
+	background: url(../img/myimg.jpg) no-repeat;
+	background-size:100% 100% ;
+}
+
+.myinfo{
+	margin-top: 30px;
+	color: #bdd4ec;
+	font-size: 15px;
+	line-height: 30px;
+}
+/*页眉end*/
+
+
+
+#mainbody{
+	position: relative;
+	width: 1300px;
+	margin: 2rem auto;
+	min-width: 500px;
+}
+
+.fa{
+	margin-right: 5px;
+}
+
+.fa-heart{
+	color: #ff0000;
+}
+

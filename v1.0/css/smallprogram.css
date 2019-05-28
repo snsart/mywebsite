@@ -1,0 +1,169 @@
+
+#playercont,#sideba{
+	box-sizing:border-box;
+}
+
+#playercont{
+	width: 75%;
+}
+#sideba{
+	width: 25%;
+}
+
+#nav{
+	font-size: 20px;
+	color: #999933;
+	margin-left: 5px;
+	margin-bottom: 20px;
+}
+
+/*项目播放器*/
+#pro-player{
+	box-sizing: border-box;
+	width: 100%;
+	padding: 5px;
+}
+
+#pro-player .content{
+	position: relative;
+}
+
+#pro-player .showframe{
+	position: relative;
+	border: solid 1px #DDDDDD;
+	width: 100%;
+	height: 0;
+	padding-bottom: 65%;
+	background-color: #ffffff;
+}
+
+#pro-player iframe {
+	position: absolute;
+	border: none;
+	width: 100%;
+	height: 100%;
+}
+
+#pro-player .fullscreen{
+	position: absolute;
+	background-color: #666666;
+	padding-left: 8px;
+	width: 30px;
+	font-size: 25px;
+	bottom: 0;
+	right: 0;
+}
+
+#pro-player .fullscreen .fa{
+	color: #FFFFFF;
+}
+
+#pro-player .pro-info{
+	background-color: #FFFFFF;
+	padding-bottom: 30px;
+	border-bottom: 1px solid #dddddd;
+}
+
+#pro-player .pro-info .head{
+	margin: 20px auto;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #dddddd;
+	line-height: 20px;
+	font-size: 20px;
+	color: #000000;
+}
+
+#pro-player .pro-info .info{
+	font-size: 12px;
+	line-height: 12px;
+	color: #888888;
+}
+
+#pro-player .info .publish,#pro-player .info .visits{
+	margin-right: 20px;
+}
+
+
+#pro-player .pro-info .brief{
+	margin-top: 15px;
+	font-size: 15px;
+	line-height: 20px;
+	color: #666666;
+}
+
+#pro-player .close{
+	position: absolute;
+	width: 3rem;
+	height: 4rem;
+	line-height: 4rem;
+	right: 0rem;
+	top: 0rem;
+	text-align: center;
+}
+
+#pro-player .close span{
+	width: 100%;
+	height: 100%;
+	color: #ff0000;
+	text-shadow: 0 0 1px #FFFFFF; 
+}
+
+/*项目列表*/
+
+.pro-wrap{
+	box-sizing:border-box;
+	float: left;
+	width: 100%;
+	background-color: #cccccc;
+}
+
+.pro-index{
+	box-sizing: border-box;
+	position: relative;
+	margin: auto;
+	border-bottom: solid 1px #dddddd;
+	width: 100%;
+	height: 100%;
+	background: #FFFFFF;
+	padding: 15px;
+}
+
+.pro-index.selected{
+	background: #999933;
+}
+
+
+.pro-index.selected header{
+	color: #FFFFFF;
+}
+
+.pro-index.selected .info{
+	color: #FFFFFF;
+}
+
+.pro-index:after{
+	clear:both;
+	content:'';
+	display:block;
+	width:0;
+	height:0;
+	visibility:hidden; 
+}
+
+.pro-index header{
+	margin-top: 5px;
+	font-size: 20px;
+	line-height: 20px;
+	color: #336699;
+}
+
+.pro-index .info{
+	float: left;
+	margin-top: 15px;
+	font-size: 13px;
+	color: #888888;
+}
+
+
+
+
