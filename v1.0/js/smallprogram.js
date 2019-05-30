@@ -30,18 +30,26 @@ $.ajax({
     //取消帮我们格式化数据，是什么就是什么
     processData:false,
 	success:function(data){
-		console.log(data);
 		handleData(JSON.parse(data));
 	}
 });
 
-var date=new Date();
-var lastClickDate=null;
+
+var clickable=true;
 $("#love").click(function(e){
-	console.log(e.currentTarget);
+	if(!clickable){
+		return;
+	}else{
+		clickable=false;
+		setTimeout(function(){
+			clickable=true;
+		},5000);
+	}
+	
 	var formdata=new FormData();
 	var id=parseInt($(e.currentTarget).attr("data-id"));
 	formdata.append("id",id);
+	formdata.append("love","love");
 	
 	$.ajax({
 		url:"smallprogram.php",
@@ -92,7 +100,7 @@ function renderlist(data){
 
 function renderLi(data){
 	var prolistModel="<div class='pro-wrap'>"+
-		"<a data-id="+data.index+ " data-url="+data.url+">"+
+		"<a data-index="+data.index+ " data-url="+data.url+">"+
 			"<div class='pro-index'>"+
 				"<header>"+
 					"<i class='fa fa-gears'></i>"+
@@ -113,14 +121,15 @@ function addEventToList(){
 	var listBtns=$("#sideba a");
 	for(var i=0;i<listBtns.length;i++){
 		$(listBtns[i]).click(function(e){
-			var id=parseInt($(e.currentTarget).attr("data-id"));
-			updatePlayer(data[id-1]);
+			var index=parseInt($(e.currentTarget).attr("data-index"));
+			updatePlayer(data[index-1]);
 		});
 	}
 }
 
 function updatePlayer(data){
-	$($("#pro-player iframe")[0]).attr("src",data.url);
+	updateVisits(data.id)
+	$($("iframe")[0]).attr("src",data.url);
 	$("#pro-player .pro-info .title")[0].innerText=data.name;
 	$("#pro-player .pro-info .publish")[0].innerText="发布日期："+data.publishdate;
 	$("#pro-player .pro-info .visits")[0].innerText="访问("+data.visits+")";
@@ -128,5 +137,66 @@ function updatePlayer(data){
 	$("#pro-player .pro-info .briefinfo")[0].innerText=data.info;
 	$("#pro-player .pro-info .tip")[0].innerText=data.tip;
 	$("#pro-player .pro-info #love").attr("data-id",data.id);
+}
+
+function updateVisits(id){
+	var formdata=new FormData();
+	formdata.append("id",id);
+	formdata.append("visit","visit");
+	console.log("visits");
+	
+	$.ajax({
+		url:"smallprogram.php",
+		type:"post",
+		data:formdata,
+		//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+	    contentType:false,
+	    //取消帮我们格式化数据，是什么就是什么
+	    processData:false,
+		success:function(data) {
+			
+		}
+	})
+}
+
+/*全屏*/
+var isFull=false;
+addfullscreenEvent();
+function addfullscreenEvent(){
+	$("#fullscreen").click(function(){
+		isFull=!isFull;
+		if(isFull){
+			console.log("dadada")
+			fullScreenHandler();
+		}else{
+			console.log("xiaoxiao")
+			initScreen();
+		}	
+	})
+}
+
+
+function fullScreenHandler(){
+	$("#bottomframe").css("display","none");
+	$("#showframe-full").css("display","block");
+	var html=$("#showframe").html();
+	$("#showframe-full").append(html);
+	$("#showframe").empty();
+	$("#showframe-full").css("width",innerWidth);
+	$("#showframe-full").css("height",innerHeight);
+	$($("#fullscreen span")[0]).removeClass();
+	$($("#fullscreen span")[0]).addClass("fa fa-compress");
+	addfullscreenEvent();
+}
+
+function initScreen(){
+	$("#bottomframe").css("display","block");
+	$("#showframe-full").css("display","none");
+	var html=$("#showframe-full").html();
+	$("#showframe").append(html);
+	$("#showframe-full").empty();
+	$($("#fullscreen span")[0]).removeClass();
+	$($("#fullscreen span")[0]).addClass("fa fa-arrows-alt");
+	addfullscreenEvent();
 }
 

@@ -13,12 +13,12 @@
 	margin-right: 10px;
 }
 
-.left{
+#left{
 	float: left;
 	width: 50%;
 }
 
-.right{
+#right{
 	float: left;
 	width: 50%;
 }

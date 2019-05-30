@@ -14,6 +14,13 @@ h1,h2{
 	padding: 0;
 }
 
+#nav{
+	font-size: 20px;
+	color: #999933;
+	margin-top: 30px;
+	margin-left: 40px;
+}
+
 /*动画*/
 .stage{
 	position: fixed;
@@ -118,7 +125,7 @@ h1,h2{
 /*菜单*/
 .container{
 	width: 80%;
-	margin: 5rem  auto;
+	margin: 3rem  auto;
 	overflow: auto;
 }
 

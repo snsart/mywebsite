@@ -24,6 +24,7 @@
 			</p>
 			<p><label for="password">访问密码:</label><input id="password" type="password" name="password" /></p>
 			<p><label for="brief">游戏说明:</label><textarea id="brief" name="brief" cols="60" rows="5"></textarea></p>
+			<p><label for="tip">游戏提示:</label><textarea id="tip" name="tip" cols="60" rows="5"></textarea></p>
 			<p><label for="proupload">上传游戏:</label><input type="file" id="proupload" name="proupload" /></p>
 			<p><label for="thumbnail">缩略图:</label><input type="file" id="thumbnail" name="thumbnail" /></p>
 			<p>

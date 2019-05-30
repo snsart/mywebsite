@@ -14,6 +14,7 @@
 	$name=$_POST['proname'];
 	$type=$_POST['protype'];
 	$brief=$_POST['brief'];
+	$tip=$_POST['tip'];
 	$password=$_POST["password"];
 	
 	$profile_name=$_FILES['proupload']['name'];
@@ -128,7 +129,7 @@
 	
 	
 	$dbc=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
-	$query="insert into project(name,type,user_id,password,brief,url,date,thumbnail,pushhome,homeImg)".
+	$query="insert into project(name,type,user_id,password,brief,tip,url,date,thumbnail,pushhome,homeImg)".
 			"values('$name','$type','$user_id',SHA('$password'),'$brief','$url',NOW(),'$thumbnail','$ispush','$homeimg')";
 			
 	mysqli_query($dbc,$query) or die("数据更新失败");

@@ -10,6 +10,13 @@ if(isset($_POST['list'])){
 	$list=$_POST['list'];
 }
 
+if(isset($_POST['love'])){
+	$love=$_POST['love'];
+}
+
+if(isset($_POST['visit'])){
+	$visit=$_POST['visit'];
+}
 
 $dbc=mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 
@@ -32,7 +39,7 @@ if(!empty($list)){
 }
 
 /*点赞数*/
-if(!empty($id)){
+if(!empty($id)&&!empty($love)){
 	$query="select loves from project where id='$id'";
 	$data=mysqli_query($dbc,$query) or die("数据更新失败"); 
 	if(mysqli_num_rows($data)==1){
@@ -42,6 +49,21 @@ if(!empty($id)){
 	$loves+=1;
 	echo $loves;
 	$query="update project set loves='$loves' where id='$id'" ;
+	mysqli_query($dbc,$query) or die("数据更新失败");
+}
+
+
+/*访问数*/
+if(!empty($id)&&!empty($visit)){
+	$query="select viewnum from project where id='$id'";
+	$data=mysqli_query($dbc,$query) or die("数据更新失败"); 
+	if(mysqli_num_rows($data)==1){
+		$row=mysqli_fetch_array($data);
+		$visits=$row['viewnum'];
+	}
+	$visits+=1;
+	echo $visits;
+	$query="update project set viewnum='$visits' where id='$id'" ;
 	mysqli_query($dbc,$query) or die("数据更新失败");
 }
 
