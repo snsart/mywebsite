@@ -25,7 +25,6 @@
 					</div>
 				</div>
 			</div>	
-			
 		</div>
 		
 		<div class="stage">
@@ -52,5 +51,26 @@
 		<script src="js/index.js" type="text/javascript" charset="UTF-8"></script>
 		<script src="js/layoutStage.js" type="text/javascript" charset="UTF-8"></script>
 		<script id="canvasScript" type="text/javascript" charset="UTF-8"></script>
+		<script>
+			window.onload=function(){
+				console.log("anim")
+				var formdata=new FormData();
+				formdata.append('page','animationPro');
+				
+				$.ajax({
+					url:"../accessStatistics.php",
+					type:"post",
+					data:formdata,
+					//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+				    contentType:false,
+				    //取消帮我们格式化数据，是什么就是什么
+				    processData:false,
+					success:function(data){
+						console.log(data);
+					}
+				});
+			}
+
+		</script>
 	</body>
 </html>
