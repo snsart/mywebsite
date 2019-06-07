@@ -1,12 +1,11 @@
-html,body,ul,p{
-	margin: 0;
-	padding: 0;
-}
 html{
-	font-size: 12px;
-	background-color: #fff;
+	background-color: #eeeeee;
+	height: 100%;
 }
 
+body{
+	height: 100%;
+}
 
 li{
 	list-style: none;
@@ -23,16 +22,40 @@ li{
 	float: right;
 }
 
-a{
-	text-decoration : none
-}
 
 a:hover {
 	text-decoration: underline;
-	color: #336699;
 	cursor: pointer;
 }/* 当有鼠标悬停在链接上 */
 
+
+h2{
+	font-size: 2rem;
+	font-weight: 500;
+	color: #1F6FB5;
+}
+h3{
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+	color: #1F6FB5;
+}
+
+h4{
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+p{
+	font-size: 1.2rem;
+	color: #888888;
+}
+
+.backhome{
+	font-size: 20px;
+	color: #000000;
+	margin: 20px auto;
+}
 
 
 /*页眉*/
@@ -45,8 +68,10 @@ a:hover {
 	
 	height: 10rem;
 	width: 100%;	
-	min-width: 500px;
+	min-width: 30rem;
 }
+
+
 .myimg{
 	width: 60px;
 	height: 60px;
@@ -65,13 +90,42 @@ a:hover {
 }
 /*页眉end*/
 
+/*页脚*/
+footer{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	height: 50px;
+	border-top: solid 1px #BBBBBB;
+	font-size: 1.2rem;
+	color: #666666;
+}
 
+footer:after{
+	content: "";
+	display: block;
+	clear: both;
+}
+
+footer li{
+	margin: 10px 20px;
+}
+
+
+/*页脚end*/
 
 #mainbody{
 	position: relative;
-	width: 1300px;
-	margin: 2rem auto;
-	min-width: 500px;
+	max-width: 1200px;
+	min-width: 30rem;
+	margin: auto;
+	padding: 0 6px;
+}
+
+#mainbody:after{
+	content: "";
+	display: block;
+	clear: both;
 }
 
 .fa{
@@ -82,3 +136,9 @@ a:hover {
 	color: #ff0000;
 }
 
+#mainframe{
+	position: relative;
+	display: block;
+	min-height: 100%;
+	padding-bottom: 60px;/*为页脚留空*/
+}

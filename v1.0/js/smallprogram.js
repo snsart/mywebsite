@@ -16,23 +16,6 @@ window.onload=function(){
 	});
 }
 
-window.onresize=function(){
-	var width=window.innerWidth;
-	
-	if(width>1300){
-		$("#mainbody").css("width","1300px");
-		$("#playercont").css("width","75%");
-		$("#sideba").css("width","25%");
-	}else if(width>1100){
-		$("#mainbody").css("width","1100px");
-		$("#playercont").css("width","75%");
-		$("#sideba").css("width","25%");
-	}else{
-		$("#mainbody").css("width","100%");
-		$("#playercont").css("width","100%");
-		$("#sideba").css("width","100%");
-	}
-}
 
 var data=[];
 
@@ -78,7 +61,7 @@ $("#love").click(function(e){
 	    //取消帮我们格式化数据，是什么就是什么
 	    processData:false,
 		success:function(data) {
-			$("#pro-player .pro-info .like")[0].innerText="喜欢("+data+")";
+			$("#player .like")[0].innerText="喜欢("+data+")";
 		}
 	})
 })
@@ -117,26 +100,23 @@ function renderlist(data){
 }
 
 function renderLi(data){
-	var prolistModel="<div class='pro-wrap'>"+
-		"<a data-index="+data.index+ " data-url="+data.url+">"+
-			"<div class='pro-index'>"+
+	var prolistModel="<li>"+
 				"<header>"+
-					"<i class='fa fa-gears'></i>"+
-					data.name+
+					"<a data-index="+data.index+ " data-url="+data.url+">"+
+						"<h3><i class='fa fa-gears'></i>"+data.name+"</h3>"+
+					"</a>"+
 				"</header>"+
 				
 				"<p class='info'>"+
 					data.info+
 				"</p>"+
-			"</div>"+
-		"</a>"+
-	"</div>";
+	"</li>";
 	
-	$("#sideba").append(prolistModel);
+	$("#pro-list").append(prolistModel);
 }
 
 function addEventToList(){
-	var listBtns=$("#sideba a");
+	var listBtns=$("#pro-list a");
 	for(var i=0;i<listBtns.length;i++){
 		$(listBtns[i]).click(function(e){
 			var index=parseInt($(e.currentTarget).attr("data-index"));
@@ -148,13 +128,13 @@ function addEventToList(){
 function updatePlayer(data){
 	updateVisits(data.id)
 	$($("iframe")[0]).attr("src",data.url);
-	$("#pro-player .pro-info .title")[0].innerText=data.name;
-	$("#pro-player .pro-info .publish")[0].innerText="发布日期："+data.publishdate;
-	$("#pro-player .pro-info .visits")[0].innerText="访问("+data.visits+")";
-	$("#pro-player .pro-info .like")[0].innerText="喜欢("+data.loves+")";
-	$("#pro-player .pro-info .briefinfo")[0].innerText=data.info;
-	$("#pro-player .pro-info .tip")[0].innerText=data.tip;
-	$("#pro-player .pro-info #love").attr("data-id",data.id);
+	$("#player .title")[0].innerText=data.name;
+	$("#player .publish")[0].innerText="发布日期："+data.publishdate;
+	$("#player .visits")[0].innerText="访问("+data.visits+")";
+	$("#player .like")[0].innerText="喜欢("+data.loves+")";
+	$("#player .briefinfo")[0].innerText=data.info;
+	$("#player .tip")[0].innerText=data.tip;
+	$("#player #love").attr("data-id",data.id);
 }
 
 function updateVisits(id){
@@ -184,10 +164,8 @@ function addfullscreenEvent(){
 	$("#fullscreen").click(function(){
 		isFull=!isFull;
 		if(isFull){
-			console.log("dadada")
 			fullScreenHandler();
 		}else{
-			console.log("xiaoxiao")
 			initScreen();
 		}	
 	})
@@ -195,20 +173,18 @@ function addfullscreenEvent(){
 
 
 function fullScreenHandler(){
-	$("#bottomframe").css("display","none");
+	$("#mainframe").css("display","none");
 	$("#showframe-full").css("display","block");
 	var html=$("#showframe").html();
 	$("#showframe-full").append(html);
 	$("#showframe").empty();
-	$("#showframe-full").css("width",innerWidth);
-	$("#showframe-full").css("height",innerHeight);
 	$($("#fullscreen span")[0]).removeClass();
 	$($("#fullscreen span")[0]).addClass("fa fa-compress");
 	addfullscreenEvent();
 }
 
 function initScreen(){
-	$("#bottomframe").css("display","block");
+	$("#mainframe").css("display","block");
 	$("#showframe-full").css("display","none");
 	var html=$("#showframe-full").html();
 	$("#showframe").append(html);
