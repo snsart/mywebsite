@@ -72,7 +72,7 @@ function handleData(jsondata){
 	for(var i=0;i<jsondata.length;i++){
 		var obj={
 			"id":jsondata[i].id,
-			"index":i+1,
+			"index":i,
 			"name":jsondata[i].name,
 			"type":jsondata[i].type,
 			"url":"admin/"+jsondata[i].url,
@@ -86,7 +86,13 @@ function handleData(jsondata){
 	}
 	renderlist(data);
 	addEventToList();
-	updatePlayer(data[0]);
+	
+	let index=getQueryStringArgs().id;
+	if(index){
+		updatePlayer(data[index]);
+	}else{
+		updatePlayer(data[0]);
+	}
 }
 
 
@@ -120,11 +126,12 @@ function addEventToList(){
 	for(var i=0;i<listBtns.length;i++){
 		$(listBtns[i]).click(function(e){
 			var index=parseInt($(e.currentTarget).attr("data-index"));
-			updatePlayer(data[index-1]);
+			location.search="?id="+index;
 		});
 	}
 }
 
+/*播放器切换内容*/
 function updatePlayer(data){
 	updateVisits(data.id)
 	$($("iframe")[0]).attr("src",data.url);
@@ -137,11 +144,12 @@ function updatePlayer(data){
 	$("#player #love").attr("data-id",data.id);
 }
 
+//更新访问者
+
 function updateVisits(id){
 	var formdata=new FormData();
 	formdata.append("id",id);
 	formdata.append("visit","visit");
-	console.log("visits");
 	
 	$.ajax({
 		url:"smallprogram.php",
@@ -192,5 +200,26 @@ function initScreen(){
 	$($("#fullscreen span")[0]).removeClass();
 	$($("#fullscreen span")[0]).addClass("fa fa-arrows-alt");
 	addfullscreenEvent();
+}
+
+/*查询字符串参数*/
+function getQueryStringArgs(){
+	var qs=(location.search.length>0?location.search.substring(1):""),
+	args={},
+	items=qs.length?qs.split("&"):[],
+	item=null,
+	name=null,
+	value=null,
+	i=0,
+	len=items.length;
+	for(i=0;i<len;i++){
+		item=items[i].split("=");
+		name=decodeURIComponent(item[0]);
+		value=decodeURIComponent(item[1]);
+		if(name.length){
+			args[name]=value;
+		}
+	}
+	return args;
 }
 
