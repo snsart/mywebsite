@@ -6,9 +6,7 @@ window.onload=function(){
 		url:"accessStatistics.php",
 		type:"post",
 		data:formdata,
-		//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
 	    contentType:false,
-	    //取消帮我们格式化数据，是什么就是什么
 	    processData:false,
 		success:function(data){
 			console.log(data);
@@ -26,9 +24,7 @@ $.ajax({
 	url:"smallprogram.php",
 	type:"post",
 	data:formdata,
-	//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
     contentType:false,
-    //取消帮我们格式化数据，是什么就是什么
     processData:false,
 	success:function(data){
 		handleData(JSON.parse(data));
@@ -56,9 +52,7 @@ $("#love").click(function(e){
 		url:"smallprogram.php",
 		type:"post",
 		data:formdata,
-		//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
 	    contentType:false,
-	    //取消帮我们格式化数据，是什么就是什么
 	    processData:false,
 		success:function(data) {
 			$("#player .like")[0].innerText="喜欢("+data+")";
@@ -106,6 +100,8 @@ function renderlist(data){
 }
 
 function renderLi(data){
+	
+	var	info=data.info.length>20?data.info.substr(0,20)+"...":data.info;
 	var prolistModel="<li>"+
 				"<header>"+
 					"<a data-index="+data.index+ " data-url="+data.url+">"+
@@ -114,7 +110,7 @@ function renderLi(data){
 				"</header>"+
 				
 				"<p class='info'>"+
-					data.info+
+					info+
 				"</p>"+
 	"</li>";
 	
@@ -144,7 +140,7 @@ function updatePlayer(data){
 	$("#player #love").attr("data-id",data.id);
 }
 
-//更新访问者
+//更新访问数量
 
 function updateVisits(id){
 	var formdata=new FormData();
@@ -155,12 +151,9 @@ function updateVisits(id){
 		url:"smallprogram.php",
 		type:"post",
 		data:formdata,
-		//ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
 	    contentType:false,
-	    //取消帮我们格式化数据，是什么就是什么
 	    processData:false,
 		success:function(data) {
-			
 		}
 	})
 }
